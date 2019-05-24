@@ -109,7 +109,10 @@ view model =
     , body =
         [ div [ class "container" ]
             [ h1 [] [ text "Hello from Elm GitHub Users App" ]
-            , button [ onClick RequestOrgUsers ] [ text "Request data" ]
+            , if model.status == Success then
+                (text "")
+             else
+                button [ onClick RequestOrgUsers ] [ text "Request data" ]
             , table [ class "u-full-width" ]
                 [ thead []
                     [ tr []
